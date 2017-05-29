@@ -54,102 +54,7 @@ namespace Transformers
                 lblmsg.Text = " No data found !!!";
             }
         }
-        //**************************************************************************************
-        //*
-        //**************************************************************************************
-        //protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        //{
-        //    GridView1.EditIndex = e.NewEditIndex;
-        //    DefaultDatabase1Record();
-        //}
-        //**************************************************************************************
-        //*
-        //**************************************************************************************
-        //protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        //{
-        //    int id = Convert.ToInt16(GridView1.DataKeys[e.RowIndex].Values["id"].ToString());
-        //    TextBox txtCel = GridView1.Rows[e.RowIndex].FindControl("TextBox2") as TextBox;
-
-        //    DropDownList drp_AutobotDecepticon = GridView1.Rows[e.RowIndex].FindControl("DropDownList1") as DropDownList;           
-        //    DropDownList drp_strength = GridView1.Rows[e.RowIndex].FindControl("DropDownList2") as DropDownList;
-        //    DropDownList drp_intelligence = GridView1.Rows[e.RowIndex].FindControl("DropDownList3") as DropDownList;
-        //    DropDownList drp_speed = GridView1.Rows[e.RowIndex].FindControl("DropDownList4") as DropDownList;
-        //    DropDownList drp_endurance = GridView1.Rows[e.RowIndex].FindControl("DropDownList5") as DropDownList;
-        //    DropDownList drp_rank = GridView1.Rows[e.RowIndex].FindControl("DropDownList6") as DropDownList;
-        //    DropDownList drp_courage = GridView1.Rows[e.RowIndex].FindControl("DropDownList7") as DropDownList;
-        //    DropDownList drp_firepower = GridView1.Rows[e.RowIndex].FindControl("DropDownList8") as DropDownList;
-        //    DropDownList drp_skill = GridView1.Rows[e.RowIndex].FindControl("DropDownList9") as DropDownList;
-        //    DropDownList drp_overallRating = GridView1.Rows[e.RowIndex].FindControl("DropDownList10") as DropDownList;
-
-        //    SqlCommand cmd = new SqlCommand("update Transformers set name=@name, AutobotDecepticon=@AutobotDecepticon,strength=@strength,intelligence=@intelligence,speed=@speed,endurance=@endurance,rank=@rank,courage=@courage,firepower=@firepire,skill=@skill,overallRating=@overallRating where id =@id", con);
-        //    cmd.Parameters.AddWithValue("@name", txtCel.Text);
-
-        //    cmd.Parameters.AddWithValue("@AutobotDecepticon", drp_AutobotDecepticon.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@strength", drp_strength.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@intelligence", drp_intelligence.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@speed", drp_speed.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@endurance", drp_endurance.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@rank", drp_rank.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@courage", drp_courage.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@firepower", drp_firepower.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@skill", drp_skill.SelectedItem.Text);
-        //    cmd.Parameters.AddWithValue("@overallRating", drp_overallRating.SelectedItem.Text);
-
-
-        //    cmd.Parameters.AddWithValue("@id", id);
-        //    con.Open();
-        //    cmd.ExecuteNonQuery();
-        //    con.Close();
-
-        //    lblmsg.BackColor = Color.Blue;
-        //    lblmsg.ForeColor = Color.White;
-        //    lblmsg.Text = id + "        Updated successfully........    ";
-        //    GridView1.EditIndex = -1;
-
-        //    DefaultDatabase1Record();
-        //}
-        //**************************************************************************************
-        //*
-        //**************************************************************************************
-        //protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        //{
-        //    GridView1.EditIndex = -1;
-        //    DefaultDatabase1Record();
-        //}
-        //**************************************************************************************
-        //*
-        //**************************************************************************************
-        //protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        //{
-        //    int id = Convert.ToInt16(GridView1.DataKeys[e.RowIndex].Values["id"].ToString());
-        //    con.Open();
-        //    SqlCommand cmd = new SqlCommand("delete from Transformers where id = @id", con);
-        //    cmd.Parameters.AddWithValue("@id", id);
-        //    int result = cmd.ExecuteNonQuery();
-        //    con.Close();
-        //    if (result == 1)
-        //    {
-        //        DefaultDatabase1Record();
-        //        lblmsg.BackColor = Color.Red;
-        //        lblmsg.ForeColor = Color.White;
-        //        lblmsg.Text = id + "      Deleted successfully.......    ";
-        //    }
-        //}
-        //**************************************************************************************
-        //*
-        //**************************************************************************************
-        //protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        string id = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "id"));
-        //        Button lnkbtnresult = (Button)e.Row.FindControl("ButtonDelete");
-        //        if (lnkbtnresult != null)
-        //        {
-        //            lnkbtnresult.Attributes.Add("onclick", "javascript:return deleteConfirm('" + id + "')");
-        //        }
-        //    }
-        //}
+                
         //**************************************************************************************
         //*
         //**************************************************************************************
@@ -198,10 +103,17 @@ namespace Transformers
             }
         }
 
+        //**************************************************************************************
+        //*
+        //**************************************************************************************
         protected void btn_StartBattle_Click(object sender, EventArgs e)
         {
             StartBattle();
         }
+
+        //**************************************************************************************
+        //*
+        //**************************************************************************************
         public void StartBattle() {
 
             //**************************************************************************************
@@ -230,6 +142,9 @@ namespace Transformers
             int number_battles = 0;
             bool specialRule = false;
 
+            //**************************************************************************************
+            //* Additional variables  have been created in the event that the games is expended upon
+            //**************************************************************************************
             int numberOfWinsAutobots = 0;
             int numberOfLosesAutobots = 0;
             int numberOfTiesAutobots = 0;
@@ -239,15 +154,15 @@ namespace Transformers
 
             List<string> winningTeamAutobots = new List<string>();            
             List<string> DecepticonsSurvivors = new List<string>();
-
             List<string> winningTeamDecepticons = new List<string>();
             List<string> AutobotsSurvivors = new List<string>();
-
             List<string> losingTeamsAutobots = new List<string>();
             List<string> losingTeamsDecepticons = new List<string>();
-
             List<string> DestroyedTransformers = new List<string>();
 
+            //**************************************************************************************
+            //* Game (Battle) Logic
+            //**************************************************************************************
             if ((ds_Autobots.Tables[0].Rows.Count > 0) && (ds_Decepticons.Tables[0].Rows.Count > 0)) {
                 //Equal number of rows
 
@@ -323,6 +238,7 @@ namespace Transformers
                     //**************************************************************************************
                     specialRule = true;
                     break;
+
                     //**************************************************************************************
                     //* Check for basic Rules of Battle
                     //**************************************************************************************                   
@@ -413,7 +329,7 @@ namespace Transformers
                 specialRules.Visible = true;
             }
             //**************************************************************************************
-            //* Autobots win and Decepticons have more team members
+            //* Autobots win and Decepticons have more team members (survivors)
             //**************************************************************************************
             else if ((numbattles > 0) && (numberOfWinsAutobots > numberOfWinsDecepticons))
             {
@@ -433,7 +349,7 @@ namespace Transformers
 
             }
             //**************************************************************************************
-            //* Decepticons win and Autobots have more team members
+            //* Decepticons win and Autobots have more team members  (survivors)
             //**************************************************************************************
             else if ((numbattles > 0) && (numberOfWinsDecepticons > numberOfWinsAutobots))
             {
@@ -453,7 +369,7 @@ namespace Transformers
                 }
             }
             //**************************************************************************************
-            //* Autobots and Decepticons TIE and Autobots have more team members
+            //* Autobots and Decepticons TIE and Autobots have more team members  (survivors)
             //**************************************************************************************
             else if ((numbattles > 0) && (numberOfWinsAutobots == numberOfWinsDecepticons) && (DestroyedTransformers.Count == 0))
             {
@@ -479,7 +395,9 @@ namespace Transformers
                     lbl_Decepticons_Survivors.Text = string.Join(",", DecepticonsSurvivors.Cast<string>());
                 }
             }
-
+            //**************************************************************************************
+            //*Speical Case, displays the destroyed transformers
+            //**************************************************************************************
             else if ((numbattles > 0) && (numberOfWinsAutobots == numberOfWinsDecepticons) && (DestroyedTransformers.Count > 0))
             {                
                 tie2.Visible = true;           
